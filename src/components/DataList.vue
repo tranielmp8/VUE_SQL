@@ -4,13 +4,13 @@
       <h3 @click="showDetails = !showDetails"> {{ post.title }} </h3>
     </div>
     <div v-if="showDetails" class="details">
+      <img :src="post.img" alt="">
       <code> {{ post.code }} </code>
     </div>
   </div>
 </template>
 
 <script>
-
 import { ref } from 'vue'
   export default {
     props: ['post'],

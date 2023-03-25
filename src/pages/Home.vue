@@ -21,17 +21,20 @@ import { ref } from 'vue';
       const posts = ref([
       {
       "id": 1,
+      "img": "./src/assets/images/create_table.png",
       "title": "Create Database Table",
       "code": "CREATE TABLE naruto(id SERIAL PRIMARY KEY,name VARCHAR(50),village VARCHAR(50),power VARCHAR(50),age INTEGER, rank VARCHAR(50))"
       },
       {
         "id": 2,
+        "img": "./src/assets/images/insert1.png",
         "title": "Insert data into table",
         "code": "INSERT INTO naruto(name, village, power, age, rank)values ('naruto','leaf','shadow clone',12,'genin')"
       },
       {
       "id": 3,
       "title": "Insert multiple lines of values",
+      "img": "./src/assets/images/insert2.png",
       "code": "INSERT INTO naruto(name, village, power, age, rank)\nvalues\n('jiraiya', 'leaf', 'rasengan', 50, 'sage'),\n('sakura', 'leaf', 'creation rebirth', 12, 'genin'),\n('gaara', 'sand', 'sand binding coffin', 12, 'jinchuriki'),\n('kankuro', 'sand', 'salamander', 12, 'genin'),\n('temari', 'sand', 'dust wind technique', 12, 'genin'),\n('zabuza', 'mist', 'water prison technique', 26, 'anbu'),\n('kisame', 'mist', 'five feeding sharks', 29, 'jounin'),\n('killer bee', 'cloud', 'tailed beast ball', 36, 'jinchuriki'),\n('darui', 'cloud', 'black panther', 26, 'jounin')"
       },
       {
