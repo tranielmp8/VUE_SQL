@@ -1,84 +1,29 @@
 <template>
-  <div class="project">
-    <h4>Below is where the magic happens. I have created many different tabs that show SQL queries if you click on the TITLE in the tabs</h4>
-    <p class="anime">Yes I am a nerd so the tables I created were anime shows I watched when I was younger. (Naruto and Bleach)</p>
-    
-    <div v-for="d in data" :key="d.id" >
-      <div class="actions" >
-        <h3 @click="showDetails = !showDetails"> {{ d.title }} </h3>
-      </div>
-      <div v-if="showDetails" class="details">
-        <code> {{ d.code }} </code>
-      </div>
+  <div >
+    <div class="actions" >
+      <h3 @click="showDetails = !showDetails"> {{ post.title }} </h3>
+    </div>
+    <div v-if="showDetails" class="details">
+      <code> {{ post.code }} </code>
     </div>
   </div>
 </template>
 
 <script>
 
-import { ref } from 'vue'; 
+import { ref } from 'vue'
   export default {
+    props: ['post'],
     setup() {
-
-      let showDetails = ref(false)
-      const data = ref([
-      {
-      "id": 1,
-      "title": "CREATE DATABASE TABLE",
-      "code": `CREATE TABLE naruto(\n
-      id SERIAL PRIMARY KEY,\n
-      name VARCHAR(50),\n
-      village VARCHAR(50),\n
-      power VARCHAR(50),\n
-      age INTEGER,\n
-      rank VARCHAR(50)\n
-      )\n
-    `
-      },
-      {
-      "id": 2,
-      "title": "INSERT VALUES IN TABLES",
-      "code": `INSERT INTO naruto(name, village, power, age, rank)
-      values (
-        'naruto',
-        'leaf',
-        'shadow clone',
-        12,
-        'genin'
-      )\n
-    `
-      },
-      {
-      "id": 2,
-      "title": "INSERT VALUES IN TABLES",
-      "code": `INSERT INTO naruto(name, village, power, age, rank)
-      values (
-        'naruto',
-        'leaf',
-        'shadow clone',
-        12,
-        'genin'
-      )\n
-    `
-      },
-    ])
-
-
-      return {data, showDetails}
+      const showDetails = ref(false)
+      
+      
+      return {showDetails}
     }
   }
 </script>
 
 <style scoped>
-  .project {
-    margin: 20px auto;
-    background: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    box-shadow: 1px 2px 3px rgba(0,0,0,0.05);
-    border-radius: 7px;
-    
-  }
 
   h3 {
     cursor: pointer;
@@ -106,6 +51,8 @@ import { ref } from 'vue';
   .details {
     display: flex;
     flex-direction: column;
+    transition: .3s ease-in;
+
   }
 
   code {
